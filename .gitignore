@@ -22,3 +22,9 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Design pics
+public/venue_1.png
+public/venue_2.png 
+public/venue_3.png 
+public/venue_4.png 
