@@ -1,8 +1,9 @@
-# React + Vite
+# Ticket selling platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A **ticket selling platform** that provides the stylings for different types of Venues.
 
-Currently, two official plugins are available:
+The Current list of venues inlcudes:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Basic Venue (the most common type of venues, where the stage is put in front of the crowd)
+- Stadium Venue (the type of venue which is being present at stadiums, has an oval shape form)
+- T-Shaped Venue (a popular venue in many countries, which allows more access for getting closer to your favorite performer)
