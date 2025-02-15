@@ -1,37 +1,16 @@
-import { Graphics, Stage } from "@pixi/react";
-import { useState, useCallback } from "react";
+import { Stage, Graphics } from "@pixi/react";
+import { useWindowSize } from "../../utils/useWindowSize";
+import { useDraw } from "../../utils/useDraw";
+import { drawVenue } from "./TShapedVenueProps";
 
 // T-shaped venue design
 export default function TShapedVenue({ venueProps }) {
-  const [width, setWidth] = useState(window.innerWidth);
-  const draw = useCallback(
-    (g) => {
-      g.clear();
-      g.beginFill(venueProps.color);
-      g.drawRect(
-        venueProps.horizontalX,
-        venueProps.horizontalY,
-        venueProps.horizontalWidth,
-        venueProps.horizontalHeight
-      );
-      g.drawRect(
-        venueProps.verticalX,
-        venueProps.verticalY,
-        venueProps.verticalWidth,
-        venueProps.verticalHeight
-      );
-      g.endFill();
-    },
-    [venueProps]
-  );
-
-  document.addEventListener("resize", () => {
-    setWidth(document.innerWidth);
-  });
+  const width = useWindowSize();
+  const draw = useDraw(drawVenue, venueProps);
 
   return (
     <>
-      <Stage width={width} height={250} options={{ backgroundColor: 0xffffff }}>
+      <Stage width={width} height={400} options={{ backgroundColor: 0xffffff }}>
         <Graphics draw={draw} />
       </Stage>
     </>
