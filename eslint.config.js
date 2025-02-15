@@ -34,6 +34,7 @@ export default [
         { allowConstantExport: true },
       ],
       "react/jsx-pascal-case": [2],
+      "react/prop-types": [0],
     },
   },
 ];
