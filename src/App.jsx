@@ -1,11 +1,11 @@
 import "./App.css";
-import { VENUES } from "./components/Venues/venues";
+import { SEATS } from "./components/Seats/seats";
 
 export default function App() {
   return (
     <>
-      {VENUES.map((venue) => {
-        return venue;
+      {SEATS.map((seat) => {
+        return seat;
       })}
     </>
   );

@@ -19,3 +19,12 @@ export const seatProperties = {
     decs: "vip seat",
   },
 };
+
+export function createSeatProps(color, mappedSeats) {
+  return {
+    color,
+    circles: mappedSeats,
+  };
+}
+
+export const color = [0x008000, 0xff0000, 0xffff00]; // shape's color fill
