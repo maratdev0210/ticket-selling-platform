@@ -1,12 +1,11 @@
-import { Graphics, Stage } from "@pixi/react";
 import { useWindowSize } from "../../utils/useWindowSize";
 import { useDraw } from "../../utils/useDraw";
-import { drawVenue } from "./BasicVenueProps";
+import { drawSeats } from "./VipSeatProps";
+import { Graphics, Stage } from "@pixi/react";
 
-// A rectangle venue
-export default function BasicVenue({ venueProps }) {
+export default function VipSeat(seatProps) {
   const width = useWindowSize();
-  const draw = useDraw(drawVenue, venueProps);
+  const draw = useDraw(drawSeats, seatProps);
 
   return (
     <>
