@@ -1,11 +1,11 @@
 import { useWindowSize } from "../../utils/useWindowSize";
 import { useDraw } from "../../utils/useDraw";
-import { drawSeats } from "./LoungeSeatProps";
+import { drawSeats } from "../drawSeats";
 import { Graphics, Stage } from "@pixi/react";
 
-export default function StandingSeat(seatProps) {
+export default function LoungeSeat({ seatProps }) {
   const width = useWindowSize();
-  const draw = useDraw(drawSeats, seatProps);
+  const draw = useDraw((g) => drawSeats(g, seatProps), seatProps);
 
   return (
     <>
