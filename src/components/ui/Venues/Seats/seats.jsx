@@ -5,7 +5,7 @@ import VipSeat from "./VipSeat/VipSeat";
 import { createSeatProps, color } from "./types";
 import { mapSeats } from "./mapSeats";
 
-const mappedSeats = mapSeats(10, 10, 5, 6, 10, 25);
+const mappedSeats = mapSeats(100, 200, 5, 6, 10, 25);
 
 const standingSeatProps = createSeatProps(color[0], mappedSeats);
 const loungeSeatProps = createSeatProps(color[1], mappedSeats);

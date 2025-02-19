@@ -3,30 +3,30 @@
 // TO-DO: find the more appropriate width and height parameters later
 export const squareSectionProps = {
   small: {
+    width: 150,
+    height: 150,
+  },
+  medium: {
     width: 250,
     height: 250,
   },
-  medium: {
-    width: 400,
-    height: 400,
-  },
   large: {
-    width: 600,
-    height: 600,
+    width: 350,
+    height: 350,
   },
 };
 
 export const rectangleSectionProps = {
   small: {
-    width: 350,
-    height: 250,
+    width: 200,
+    height: 150,
   },
   medium: {
-    width: 600,
-    height: 400,
+    width: 300,
+    height: 200,
   },
   large: {
-    width: 800,
-    height: 600,
+    width: 450,
+    height: 300,
   },
 };
