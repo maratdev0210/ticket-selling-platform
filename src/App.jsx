@@ -3,8 +3,8 @@ import BasicVenue from "./components/ui/Venues/BasicVenue";
 
 export default function App() {
   return (
-    <>
+    <div>
       <BasicVenue />
-    </>
+    </div>
   );
 }

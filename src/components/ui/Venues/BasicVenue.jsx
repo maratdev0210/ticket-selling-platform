@@ -1,54 +1,32 @@
 // Draw the Basic Venue with Sections and the Seats
 import { Stage } from "@pixi/react";
-import { useWindowSize } from "../../utils/useWindowSize";
 import { SCENES } from "./Scenes/scenes";
-import { mapSeats } from "./Seats/mapSeats.jsx";
-import { createSeatProps, color } from "./Seats/types.jsx";
-import { MAPPED_SEATS } from "../../utils/basicVenueSeats.jsx";
-import StandingSeat from "./Seats/StandingSeat/StandingSeat.jsx";
-import LoungeSeat from "./Seats/LoungeSeat/LoungeSeat.jsx";
-import VipSeat from "./Seats/VipSeat/VipSeat.jsx";
-
-const basicScene = SCENES[0];
-
-const SPACE_BETWEEN_SEATS = 10;
-const RADIUS = 2;
+import { MAPPED_SEATS } from "../../utils/basicVenueProps.jsx";
+import drawSeats from "../../utils/drawSeats.jsx";
+import { useState } from "react";
 
 export default function BasicVenue() {
-  const width = useWindowSize();
+  const [selectedSeats, setSelectedSeats] = useState([]);
+  const drawnSeats = drawSeats(MAPPED_SEATS, selectedSeats, setSelectedSeats);
 
   return (
-    <>
-      <Stage width={width} height={600} options={{ backgroundColor: 0xffffff }}>
-        {basicScene}
+    <div>
+      <div>
+        <Stage
+          className="absolute shadow-2xl"
+          width={600}
+          height={600}
+          options={{ backgroundColor: 0xffffff }}
+        >
+          {SCENES[0]}
+        </Stage>
+      </div>
 
-        {MAPPED_SEATS.map((mapped_seat) => {
-          const seatToMap = mapSeats(
-            mapped_seat.x,
-            mapped_seat.y,
-            mapped_seat.rows,
-            mapped_seat.columns,
-            RADIUS,
-            SPACE_BETWEEN_SEATS
-          );
-          // color codes: 0 for standing, 1 for lounge, 2 for vip
-          const seatProps = createSeatProps(
-            color[mapped_seat.colorCode],
-            seatToMap
-          );
-
-          switch (mapped_seat.type) {
-            case "standing":
-              return <StandingSeat seatProps={seatProps} />;
-
-            case "lounge":
-              return <LoungeSeat seatProps={seatProps} />;
-
-            default:
-              return <VipSeat seatProps={seatProps} />;
-          }
+      <div className="relative">
+        {drawnSeats.map((seatDiv) => {
+          return seatDiv;
         })}
-      </Stage>
-    </>
+      </div>
+    </div>
   );
 }
