@@ -3,29 +3,44 @@ import { Stage } from "@pixi/react";
 import { SCENES } from "./Scenes/scenes";
 import { MAPPED_SEATS } from "../../utils/basicVenueProps.jsx";
 import drawSeats from "../../utils/drawSeats.jsx";
-import { useState } from "react";
 
-export default function BasicVenue() {
-  const [selectedSeats, setSelectedSeats] = useState([]);
-  const drawnSeats = drawSeats(MAPPED_SEATS, selectedSeats, setSelectedSeats);
+import { useWindowSize } from "../../utils/useWindowSize.jsx";
+
+export default function BasicVenue({
+  selectedSeats,
+  setSelectedSeats,
+  isLimitReached,
+  setIsLimitReached,
+}) {
+  const width = useWindowSize();
+
+  const drawnSeats = drawSeats(
+    MAPPED_SEATS,
+    selectedSeats,
+    setSelectedSeats,
+    isLimitReached,
+    setIsLimitReached
+  );
 
   return (
-    <div>
-      <div>
-        <Stage
-          className="absolute shadow-2xl"
-          width={600}
-          height={600}
-          options={{ backgroundColor: 0xffffff }}
-        >
-          {SCENES[0]}
-        </Stage>
-      </div>
+    <div className="relative flex items-center md:scale-75 lg:scale-100 lg:w-3/4">
+      <div style={{ width: width }} className="h-[700px]">
+        <div>
+          <Stage
+            className="absolute"
+            width={width}
+            height={600}
+            options={{ backgroundColor: 0xffffff }}
+          >
+            {SCENES[0]}
+          </Stage>
+        </div>
 
-      <div className="relative">
-        {drawnSeats.map((seatDiv) => {
-          return seatDiv;
-        })}
+        <div className="relative">
+          {drawnSeats.map((seatDiv) => {
+            return seatDiv;
+          })}
+        </div>
       </div>
     </div>
   );

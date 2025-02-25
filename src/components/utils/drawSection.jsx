@@ -6,8 +6,10 @@ export default function drawSection(
   colorCode,
   selectedSeats,
   setSelectedSeats,
+  isLimitReached,
+  setIsLimitReached,
   section,
-  type         // Standing || Lounge || VIP 
+  type // Standing || Lounge || VIP
 ) {
   return seatsCoords.map(({ x, y }, index) => {
     return (
@@ -20,6 +22,8 @@ export default function drawSection(
         key={index}
         selectedSeats={selectedSeats}
         setSelectedSeats={setSelectedSeats}
+        isLimitReached={isLimitReached}
+        setIsLimitReached={setIsLimitReached}
       />
     );
   });

@@ -9,4 +9,3 @@
 .seat {
   @apply rounded-full w-0 h-0 border-2 hover:border-3;
 }
-

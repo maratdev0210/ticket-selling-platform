@@ -6,7 +6,11 @@ export function useWindowSize() {
 
   useLayoutEffect(() => {
     function updateSize() {
-      setSize(window.innerWidth);
+      if (window.innerWidth <= 1280) {
+        setSize(Math.min(window.innerWidth, 480)); // for mobile screens
+      } else {
+        setSize(600);
+      }
     }
     window.addEventListener("resize", updateSize);
     updateSize();

@@ -1,10 +1,10 @@
-import "./App.css";
-import BasicVenue from "./components/ui/Venues/BasicVenue";
+import React from "react";
+import PickSeats from "./components/PickSeats";
 
 export default function App() {
   return (
-    <div>
-      <BasicVenue />
-    </div>
+    <React.Fragment>
+      <PickSeats />
+    </React.Fragment>
   );
 }
