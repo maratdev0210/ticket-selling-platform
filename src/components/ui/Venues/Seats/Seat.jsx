@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
+import { useStore } from "zustand";
 import seatPrice from "../../../utils/seatPrice";
-import { priceRange } from "./types";
-import { color } from "./types";
+import { priceRange, color } from "./types";
+import useSelectedSeats from "../../../state/useSelectedSeats";
 
 export default function Seat({
   x,
@@ -9,13 +10,22 @@ export default function Seat({
   colorCode,
   section,
   type,
-  selectedSeats,
-  setSelectedSeats,
   isLimitReached,
   setIsLimitReached,
 }) {
   const [isSelected, setIsSelected] = useState(false); // toggle for the seat
-
+  const selectedSeats = useStore(
+    useSelectedSeats,
+    (state) => state.selectedSeats
+  );
+  const setSelectedSeats = useStore(
+    useSelectedSeats,
+    (state) => state.setSelectedSeats
+  );
+  const resetSelectedSeats = useStore(
+    useSelectedSeats,
+    (state) => state.resetSelectedSeats
+  );
   // do not allow the user to select more than 5 seats
   useEffect(() => {
     if (!isSelected && selectedSeats.length == 5) {
@@ -33,26 +43,30 @@ export default function Seat({
 
     setIsSelected(!isSelected);
 
-    setSelectedSeats([
-      ...selectedSeats,
-      {
-        x,
-        y,
-        price: seatPrice(
-          priceRange[colorCode].minPrice,
-          priceRange[colorCode].maxPrice
-        ),
-        section,
-        type,
-        colorCode,
-      },
-    ]);
+    setSelectedSeats({
+      x,
+      y,
+      price: seatPrice(
+        priceRange[colorCode].minPrice,
+        priceRange[colorCode].maxPrice
+      ),
+      section,
+      type,
+      colorCode,
+    });
 
     // remove the seat from the selected seats list
     if (isSelected) {
-      setSelectedSeats(
-        selectedSeats.filter((seat) => seat.x !== x || seat.y !== y)
+      // if the seat is already selected, and the user clicks on it then remove this seat from list of selected ones
+      const newArr = selectedSeats.filter(
+        (seat) => seat.x !== x || seat.y !== y
       );
+      // reset the state to repopulate it with selected seats excluding the remove one
+      resetSelectedSeats();
+
+      newArr.map((seat) => {
+        setSelectedSeats(seat);
+      });
     }
   }
 

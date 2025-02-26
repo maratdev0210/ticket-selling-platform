@@ -7,8 +7,6 @@ const SEAT_RADIUS = 2;
 // display the seats on the screen
 export default function drawSeats(
   mapped_seats,
-  selectedSeats,
-  setSelectedSeats,
   isLimitReached,
   setIsLimitReached
 ) {
@@ -26,8 +24,6 @@ export default function drawSeats(
       return drawSection(
         seatsCoords,
         colorCode,
-        selectedSeats,
-        setSelectedSeats,
         isLimitReached,
         setIsLimitReached,
         section,

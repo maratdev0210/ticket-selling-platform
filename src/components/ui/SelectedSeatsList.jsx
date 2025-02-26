@@ -1,9 +1,10 @@
 // display the selected seats as a list
 import React from "react";
+import { Link } from "react-router";
 import { color } from "./Venues/Seats/types";
 import { useEffect, useState } from "react";
 
-// TO-DO: polish the UI 
+// TO-DO: polish the UI
 export default function SelectedSeatsList({ selectedSeats }) {
   const [isSeatChosen, setIsSeatChosen] = useState(false); // show the selected seats once they are chosen
   useEffect(() => {
@@ -53,7 +54,7 @@ export default function SelectedSeatsList({ selectedSeats }) {
 
           <div className="flex justify-center group">
             <button className="group-hover:cursor-pointer rounded-sm border-2 border-black/50 px-2 py-2">
-              Proceed to Checkout
+              <Link to="/checkout">Proceed to Checkout</Link>
             </button>
           </div>
         </div>

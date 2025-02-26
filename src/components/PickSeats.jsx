@@ -3,17 +3,20 @@ import React from "react";
 import { useState } from "react";
 import BasicVenue from "./ui/Venues/BasicVenue";
 import SelectedSeatsList from "./ui/selectedSeatsList";
+import { useStore } from "zustand";
+import useSelectedSeats from "./state/useSelectedSeats";
 
 export default function PickSeats() {
-  const [selectedSeats, setSelectedSeats] = useState([]);
   const [isLimitReached, setIsLimitReached] = useState(false);
+  const selectedSeats = useStore(
+    useSelectedSeats,
+    (state) => state.selectedSeats
+  );
 
   return (
     <div className="flex flex-col justify-center h-[800px] items-center relative">
       <div className="flex shadow-2xl w-full 2xl:w-3/4  h-[600px]  mx-auto">
         <BasicVenue
-          selectedSeats={selectedSeats}
-          setSelectedSeats={setSelectedSeats}
           isLimitReached={isLimitReached}
           setIsLimitReached={setIsLimitReached}
         />

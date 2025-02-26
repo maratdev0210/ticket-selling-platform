@@ -3,24 +3,11 @@ import { Stage } from "@pixi/react";
 import { SCENES } from "./Scenes/scenes";
 import { MAPPED_SEATS } from "../../utils/basicVenueProps.jsx";
 import drawSeats from "../../utils/drawSeats.jsx";
-
 import { useWindowSize } from "../../utils/useWindowSize.jsx";
 
-export default function BasicVenue({
-  selectedSeats,
-  setSelectedSeats,
-  isLimitReached,
-  setIsLimitReached,
-}) {
+export default function BasicVenue({ isLimitReached, setIsLimitReached }) {
   const width = useWindowSize();
-
-  const drawnSeats = drawSeats(
-    MAPPED_SEATS,
-    selectedSeats,
-    setSelectedSeats,
-    isLimitReached,
-    setIsLimitReached
-  );
+  const drawnSeats = drawSeats(MAPPED_SEATS, isLimitReached, setIsLimitReached);
 
   return (
     <div className="relative flex items-center md:scale-75 lg:scale-100 lg:w-3/4">

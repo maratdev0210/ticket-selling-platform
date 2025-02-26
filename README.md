@@ -37,3 +37,15 @@ the **description** which pops up when the seat is being hovered on
 
 - **color** sets the seat's color of a seat block
 - **circles** is the array containg the location of each seat
+
+## Managing Seats
+
+The seats are managed using the `Zustand` library which serves the purpose of globally managing the state.
+
+`useSelectedSeats`
+
+- **selectedSeats** -> current state access
+- **setSelectedSeats** -> add new seats to current state
+- **resetSelectedSeats** -> reset the current state
+
+This hook is called each time we have to access the current state of the program. In particular, `useSelectedSeats` is implemented inside Seat update component and inside the UI of showing the selected seats to the user.

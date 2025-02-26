@@ -4,8 +4,6 @@ import Seat from "../ui/Venues/Seats/Seat";
 export default function drawSection(
   seatsCoords, // (x, y) position of each seat
   colorCode,
-  selectedSeats,
-  setSelectedSeats,
   isLimitReached,
   setIsLimitReached,
   section,
@@ -20,8 +18,6 @@ export default function drawSection(
         section={section}
         type={type}
         key={index}
-        selectedSeats={selectedSeats}
-        setSelectedSeats={setSelectedSeats}
         isLimitReached={isLimitReached}
         setIsLimitReached={setIsLimitReached}
       />
