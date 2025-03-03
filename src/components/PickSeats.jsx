@@ -18,8 +18,6 @@ export default function PickSeats() {
     (state) => state.reservedSeats
   );
 
-  console.log(selectedSeats);
-  console.log(reservedSeats);
   return (
     <div className="flex flex-col justify-center h-[800px] items-center relative">
       <div className="flex shadow-2xl w-full 2xl:w-3/4  h-[600px]  mx-auto">
