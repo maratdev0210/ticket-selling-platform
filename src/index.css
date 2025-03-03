@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 /* override the default values for easier styling */
 #root {
   margin: 0px !important;

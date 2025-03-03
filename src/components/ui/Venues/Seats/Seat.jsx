@@ -4,6 +4,7 @@ import seatPrice from "../../../utils/seatPrice";
 import { priceRange, color } from "./types";
 import useSelectedSeats from "../../../state/useSelectedSeats";
 
+// TO-DO: leave the seats colored when the user returns back to the page
 export default function Seat({
   x,
   y,
@@ -84,3 +85,4 @@ export default function Seat({
     </div>
   );
 }
+
