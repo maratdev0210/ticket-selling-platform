@@ -11,3 +11,7 @@
 .seat {
   @apply rounded-full w-0 h-0 border-2 hover:border-3;
 }
+
+.input {
+  @apply border-1 border-solid border-blue-600;
+}

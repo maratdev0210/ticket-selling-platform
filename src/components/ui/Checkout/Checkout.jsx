@@ -1,86 +1,53 @@
-// seats payment
-import React from "react";
-import { useStore } from "zustand";
-import useSelectedSeats from "../../state/useSelectedSeats";
-import { Link } from "react-router";
+import ListedSeats from "./ListedSeats";
+import Payment from "./Payment";
+import Final from "./Final";
 import { useState } from "react";
-import { useTransition, animated } from "@react-spring/web";
-import SeatItem from "./helpers/SeatItem";
+import { Check } from "lucide-react";
+import ThemeSwitch from "../Header/themeSwitch";
+import { useStore } from "zustand";
+import useTheme from "../../state/useTheme";
 
 export default function Checkout() {
-  const selectedSeats = useStore(
-    useSelectedSeats,
-    (state) => state.selectedSeats
-  );
-  const [isMore, setIsMore] = useState(false);
-  const [renderedSeats, setRenderedSeats] = useState(selectedSeats);
+  const [page, setPage] = useState(1);
+  const theme = useStore(useTheme, (state) => state.theme); // dark || light
 
-  const setReservedSeats = useStore(
-    useSelectedSeats,
-    (state) => state.setReservedSeats
-  );
+  const onNext = () => {
+    setPage(page + 1);
+  };
 
-  const transitionsOnRemoval = useTransition(renderedSeats, {
-    from: { opacity: 1, transform: "translateY(0)" },
-    enter: { opacity: 1, transform: "translateY(0px)" },
-    leave: { opacity: 0 },
-    config: { duration: 500 },
-  });
-
-  // fade-out animation after deleting a seat
-  const seatsList = transitionsOnRemoval((style, selectedSeat, _, index) => (
-    <animated.div style={style}>
-      <SeatItem
-        key={index}
-        renderedSeats={renderedSeats}
-        setRenderedSeats={setRenderedSeats}
-        selectedSeats={selectedSeats}
-        selectedSeat={selectedSeat}
-        index={index}
-      />
-    </animated.div>
-  ));
+  const steps = [
+    <ListedSeats onNext={onNext} />,
+    <Payment handleSubmit={onNext} />,
+    <Final />,
+  ];
 
   return (
-    <>
-      <div className="relative">
-        <div className="mt-24 shadow-xl h-auto mx-auto  border-1 border-gray-900/10 rounded-md border-solid w-1/2">
-          <p className="p-2 text-xl text-center text-gray-700/75 font-medium">
-            Checkout
-          </p>
-          <div>
-            {selectedSeats.length > 0 && (
-              <p className="px-2 text-xl py-4 font-medium text-gray-700/75">
-                Your seats
-              </p>
-            )}
+    <div>
+      <ThemeSwitch />
+      <div className="mt-24 mb-24 p-2 sm:p-4 shadow-xl h-auto mx-auto  border-1 border-gray-900/10 rounded-md border-solid sm:w-1/2 lg:w-3/5 xl:w-1/3">
+        {steps[page - 1]}
 
-            <div
-              className={`${isMore ? "transition-all duration-500" : "h-18 transition-all duration-500 overflow-hidden"} p-2`}
-            >
-              {seatsList}
-            </div>
-
-            {selectedSeats.length > 0 && (
-              <p
-                onClick={() => setIsMore(!isMore)}
-                className="text-md font-medium p-2 text-gray-500/80 cursor-pointer"
-              >
-                Show {isMore ? "less" : "more"}
-              </p>
-            )}
-
-            {selectedSeats.length == 0 && (
-              <div className="flex flex-col items-center">
-                <p>Looks like you have removed all of your seats..</p>
-                <Link to="/" className="py-2 text-gray-800/75">
-                  Go back and pick your seats again
-                </Link>
-              </div>
-            )}
-          </div>
+        <div className="py-4 gap-0.5 flex justify-center items-center w-full mx-auto mt-16">
+          {[1, 2, 3].map((currentPage, index) => {
+            return (
+              <>
+                <span
+                  key={index}
+                  onClick={() => setPage(index + 1)}
+                  className={`${currentPage <= page ? "bg-blue-700/50 text-white border-2" : " border-gray-700"} border-2 hover:cursor-pointer w-7 text-center  text-md rounded-full `}
+                >
+                  {currentPage < page || page == 3 ? <Check /> : currentPage}
+                </span>
+                {currentPage < 3 && (
+                  <span
+                    className={`${currentPage < page ? "text-blue-700/50" : "text-gray-500"} border-1 border-solid w-16  h-0`}
+                  ></span>
+                )}
+              </>
+            );
+          })}
         </div>
       </div>
-    </>
+    </div>
   );
 }
