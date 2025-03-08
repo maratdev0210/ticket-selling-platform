@@ -1,5 +1,5 @@
 // Final step congratulating the user that his tickets have been bought
-import SlideIn from "./helpers/SlideIn";
+import SlideIn from "../animate/SlideIn";
 import { Link } from "react-router";
 
 export default function Final() {

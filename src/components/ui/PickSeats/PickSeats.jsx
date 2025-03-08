@@ -1,13 +1,14 @@
 // Pick the seats and proceed to checkout
 import React from "react";
-import { useState } from "react";
-import BasicVenue from "./ui/Venues/BasicVenue";
-import SelectedSeatsList from "./ui/selectedSeatsList";
+import { useState, useEffect } from "react";
+import BasicVenue from "../Venues/BasicVenue";
+import SelectedSeatsList from "../selectedSeatsList";
 import { useStore } from "zustand";
-import useSelectedSeats from "./state/useSelectedSeats";
+import useSelectedSeats from "../../state/useSelectedSeats";
 
 export default function PickSeats() {
   const [isLimitReached, setIsLimitReached] = useState(false);
+
   const selectedSeats = useStore(
     useSelectedSeats,
     (state) => state.selectedSeats

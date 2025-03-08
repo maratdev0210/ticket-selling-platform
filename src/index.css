@@ -15,3 +15,50 @@
 .input {
   @apply border-1 border-solid border-blue-600;
 }
+
+/* for texts that serve as the entry point of a section */
+/* these texts are the most important in visual hierarchy */
+.text-header {
+  @apply text-2xl font-bold font-sans text-blue-700/80 dark:text-white;
+}
+
+/* for texts that serve as the header of a section */
+.text-main {
+  @apply text-xl font-medium font-sans text-gray-700 dark:text-white/90;
+}
+
+.text {
+  @apply text-sm font-medium font-sans text-gray-500/75 dark:text-white/75;
+}
+
+.text-alt {
+  @apply text-sm font-medium font-sans text-pink-500/80;
+}
+
+/*
+  1. Design texts 
+  2. Add predefined colors
+*/
+@theme {
+  --animate-skeleton: skeleton 2.5s ease-in-out infinite;
+  --animate-strip: strip 1.5s infinite;
+
+  @keyframes skeleton {
+    50% {
+      opacity: 0.5;
+    }
+  }
+
+  @keyframes strip {
+    0% {
+      transform: translate(0px);
+      background-color: var(--color-gray-white);
+      opacity: 0.5;
+    }
+    100% {
+      transform: translate(calc(var(--spacing) * 44));
+      background-color: var(--color-gray-100);
+      opacity: 0.5;
+    }
+  }
+}

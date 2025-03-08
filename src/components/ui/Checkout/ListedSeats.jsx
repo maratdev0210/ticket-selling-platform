@@ -45,14 +45,10 @@ export default function ListedSeats({ onNext }) {
     <>
       <div className="relative">
         <div>
-          <p className="p-2 text-xl text-center text-gray-700/75 font-medium">
-            Checkout
-          </p>
+          <p className="p-2 text-header text-center">Checkout</p>
           <div>
             {selectedSeats.length > 0 && (
-              <p className="px-2 text-xl py-4 font-medium text-gray-700/75">
-                Your seats
-              </p>
+              <p className="px-2 py-4 text-main">Your seats</p>
             )}
 
             <div
@@ -64,7 +60,7 @@ export default function ListedSeats({ onNext }) {
             {selectedSeats.length > 0 && (
               <p
                 onClick={() => setIsMore(!isMore)}
-                className="text-md font-medium p-2 text-gray-500/80 cursor-pointer"
+                className="text p-2 cursor-pointer"
               >
                 Show {isMore ? "less" : "more"}
               </p>
@@ -72,8 +68,10 @@ export default function ListedSeats({ onNext }) {
 
             {selectedSeats.length == 0 && (
               <div className="flex flex-col items-center">
-                <p>Looks like you have removed all of your seats..</p>
-                <Link to="/" className="py-2 text-gray-800/75">
+                <p className="text-main text-center">
+                  Looks like you have removed all of your seats..
+                </p>
+                <Link to="/" className="pt-4 text">
                   Go back and pick your seats again
                 </Link>
               </div>
