@@ -30,7 +30,7 @@ export default function Checkout() {
 
   const steps = [
     <ListedSeats onNext={onNext} />,
-    <Payment handleSubmit={onNext} />,
+    <Payment onNext={onNext} />,
     <Final />,
   ];
 
@@ -41,7 +41,7 @@ export default function Checkout() {
         {loading ? (
           <Skeleton />
         ) : (
-          <div className="mt-24 p-2 sm:p-4 shadow-xl h-auto mx-auto  border-1 border-gray-900/10 rounded-md border-solid sm:w-1/2 lg:w-3/5 xl:w-1/3 mb-5">
+          <div className="mt-8 p-2 sm:p-4 shadow-xl h-auto mx-auto  border-1 border-gray-900/10 rounded-md border-solid sm:w-1/2 lg:w-3/5 xl:w-1/3 mb-5">
             {steps[page - 1]}
 
             <div className="py-4 gap-0.5 flex justify-center items-center w-full mx-auto mt-16">
