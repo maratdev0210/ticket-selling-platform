@@ -5,11 +5,16 @@ import { Classic } from "@theme-toggles/react";
 import useLocalStorage from "use-local-storage";
 import useTheme from "../../state/useTheme";
 import { useStore } from "zustand";
+import { useEffect } from "react";
 
 export default function ThemeSwitch() {
   const [localStorageTheme, setLocalStorageTheme] = useLocalStorage("theme");
   const theme = useStore(useTheme, (state) => state.theme);
   const changeTheme = useStore(useTheme, (state) => state.changeTheme);
+
+  useEffect(() => {
+    document.body.classList.toggle("dark", theme == "dark");
+  }, [theme]);
 
   function onThemeSwitch() {
     setLocalStorageTheme(localStorageTheme == "light" ? "dark" : "light");

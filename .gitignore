@@ -11,6 +11,7 @@ node_modules
 dist
 dist-ssr
 *.local
+public
 
 # Editor directories and files
 .vscode/*
@@ -23,8 +24,3 @@ dist-ssr
 *.sln
 *.sw?
 
-# Sketch Designs
-public/venue_1.png 
-public/venue_2.png 
-public/venue_3.png 
-public/venue_4.png

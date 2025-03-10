@@ -1,61 +1,32 @@
 import SlideIn from "../animate/SlideIn";
 import { useForm } from "react-hook-form";
-import Input from "./helpers/Input";
+import MainInput from "./helpers/payment/MainInput";
+import CardInput from "./helpers/payment/CardInput";
 import { useState } from "react";
-
-const formFields = [
-  {
-    type: "text",
-    name: "name",
-    placeholder: "Name",
-    label: "Name",
-  },
-  {
-    type: "text",
-    name: "surname",
-    placeholder: "Surname",
-    label: "Surname",
-  },
-  {
-    type: "text", // set the email to type text to override the in-built browser email validation
-    name: "email",
-    placeholder: "xxx@gmail.com",
-    label: "Email",
-  },
-  {
-    type: "tel",
-    name: "phone",
-    placeholder: "+7-xxx-xxx-xx-xx",
-    label: "Phone",
-  },
-  /*
-  {
-    type: "text",
-    name: "payment",
-    placeholder: "xxx-xxxx-xx-xxx",
-    label: "Payment info",
-  }, */
-];
+import { formFields } from "./helpers/payment/formFields";
 
 export default function Payment({ onNext }) {
   const {
     register,
     handleSubmit,
     watch,
+    setValue,
     formState: { errors },
   } = useForm({ mode: "onChange" });
 
   const [isSubmit, setIsSubmit] = useState(false);
 
-  const onSubmit = (data) => {
-    console.log(data);
+  const onSubmit = () => {
     onNext();
   };
 
-  console.log(watch("name"));
+  watch("name");
   watch("surname");
   watch("email");
   watch("phone");
+  watch("payment");
+  watch("expiration");
+  watch("cvc");
 
   return (
     <SlideIn>
@@ -68,7 +39,7 @@ export default function Payment({ onNext }) {
         >
           {formFields.map(({ type, name, placeholder, label }, index) => {
             return (
-              <Input
+              <MainInput
                 key={index}
                 type={type}
                 name={name}
@@ -81,6 +52,14 @@ export default function Payment({ onNext }) {
               />
             );
           })}
+
+          <CardInput
+            register={register}
+            errors={errors}
+            isSubmit={isSubmit}
+            watch={watch}
+            setValue={setValue}
+          />
 
           <input
             onClick={() => setIsSubmit(true)}

@@ -23,8 +23,10 @@ export default function SeatItem({
         ></div>
         <div className="px-2">
           <div className="flex gap-1">
-            <span>Section</span>
-            <span className="text-md font-medium">{selectedSeat.section}</span>
+            <span className="text-main">Section</span>
+            <span className="text-md font-medium text-main px-2">
+              {selectedSeat.section}
+            </span>
             <span
               style={{ color: color[selectedSeat.colorCode], opacity: 0.8 }}
               className="text-md fond-bold px-3"
@@ -33,7 +35,7 @@ export default function SeatItem({
             </span>
           </div>
           <div>
-            <span className="text-md font-medium hover:text-gray-700/50">
+            <span className="text-alt font-medium hover:text-gray-700/50">
               {"$" + selectedSeat.price}
             </span>
           </div>
@@ -44,7 +46,10 @@ export default function SeatItem({
         onClick={() => removeSeat(index)}
         title="remove from ticket"
       >
-        <Star className="w-8 h-8 text-red-900" title="message" />
+        <Star
+          className="w-8 h-8 dark:text-blue-900 text-red-900"
+          title="message"
+        />
       </div>
     </div>
   );
