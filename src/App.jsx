@@ -1,15 +1,12 @@
 import React from "react";
 import PickSeats from "./components/ui/PickSeats/PickSeats";
-import ThemeSwitch from "./components/ui/Header/themeSwitch";
-import useLocalStorage from "use-local-storage";
-import { useStore } from "zustand";
-import useTheme from "./components/state/useTheme";
+import Artists from "./components/ui/artists/Artists";
 
 export default function App() {
   return (
     <React.Fragment>
+      <Artists />
       <PickSeats />
-      <ThemeSwitch />
     </React.Fragment>
   );
 }

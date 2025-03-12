@@ -4,7 +4,7 @@ import { useStore } from "zustand";
 import useSelectedSeats from "../../state/useSelectedSeats";
 import { Link } from "react-router";
 import { useState } from "react";
-import { useTransition, animated } from "@react-spring/web";
+import { useTransition, useSpring, animated } from "@react-spring/web";
 import SeatItem from "./helpers/SeatItem";
 
 export default function ListedSeats({ onNext }) {
@@ -14,11 +14,25 @@ export default function ListedSeats({ onNext }) {
   );
   const [isMore, setIsMore] = useState(false);
   const [renderedSeats, setRenderedSeats] = useState(selectedSeats);
+  const [springs, api] = useSpring(() => ({}));
 
   const setReservedSeats = useStore(
     useSelectedSeats,
     (state) => state.setReservedSeats
   );
+
+  const handleCollapse = () => {
+    setIsMore(!isMore);
+    api.start({
+      from: {
+        opacity: 0,
+      },
+      to: {
+        opacity: 1,
+      },
+      config: { duration: 1000 },
+    });
+  };
 
   const transitionsOnRemoval = useTransition(renderedSeats, {
     from: { opacity: 1, transform: "translateY(0)" },
@@ -50,18 +64,16 @@ export default function ListedSeats({ onNext }) {
             {selectedSeats.length > 0 && (
               <p className="px-2 py-4 text-main">Your seats</p>
             )}
-
-            <div
-              className={`${isMore ? "transition-all duration-500" : "h-18 transition-all duration-500 overflow-hidden"} p-2`}
-            >
-              {seatsList}
-            </div>
+            <animated.div style={{ ...springs }}>
+              <div
+                className={`${isMore ? "transition-all duration-500" : "h-18 transition-all duration-500 overflow-hidden"} p-2`}
+              >
+                {seatsList}
+              </div>
+            </animated.div>
 
             {selectedSeats.length > 0 && (
-              <p
-                onClick={() => setIsMore(!isMore)}
-                className="text p-2 cursor-pointer"
-              >
+              <p onClick={handleCollapse} className="text p-2 cursor-pointer">
                 Show {isMore ? "less" : "more"}
               </p>
             )}
