@@ -46,6 +46,8 @@ body.dark {
 @theme {
   --animate-skeleton: skeleton 2.5s ease-in-out infinite;
   --animate-strip: strip 1.5s infinite;
+  --animate-fadeOutImage: fadeOutImage 3s ease-in-out infinite;
+  --animate-fadeInImage: fadeInImage 3s ease-in-out infinite;
 
   @keyframes skeleton {
     50% {
@@ -63,6 +65,28 @@ body.dark {
       transform: translate(calc(var(--spacing) * 44));
       background-color: var(--color-gray-100);
       opacity: 0.5;
+    }
+  }
+
+  @keyframes fadeOutImage {
+    0% {
+      opacity: 0.5;
+      transform: translateX(0%);
+    }
+    100% {
+      opacity: 0;
+      transform: translateX(-100%);
+    }
+  }
+
+  @keyframes fadeInImage {
+    0% {
+      opacity: 0;
+      transform: translateX(100%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0%);
     }
   }
 }
