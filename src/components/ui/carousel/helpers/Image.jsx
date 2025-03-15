@@ -7,7 +7,7 @@ export default function Image({ className, id, currentImageId, src }) {
   return (
     <img
       src={src}
-      className={`${id != currentImageId ? "hidden" : "sm:w-xl w-2xl h-80"} ${className}`}
+      className={`${id != currentImageId ? "hidden" : "sm:w-3xl w-full h-120"} ${className}`}
     />
   );
 }

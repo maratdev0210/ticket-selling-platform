@@ -26,11 +26,11 @@ function StepsIcon() {
   });
 }
 
-export default function Skeleton({ theme }) {
+export default function Skeleton() {
   return (
     <>
       <div
-        className={`${theme} mt-24 animate-skeleton  shadow-lg sm:w-1/2 lg:w-3/5 xl:w-1/3  h-auto pb-8 mx-auto rounded-md border-none dark:border-gray-700/50 dark:rounded-xl dark:border-solid border-1`}
+        className={`mt-24 animate-skeleton  shadow-lg sm:w-1/2 lg:w-3/5 xl:w-1/3  h-auto pb-8 mx-auto rounded-md border-none dark:border-gray-700/50 dark:rounded-xl dark:border-solid border-1`}
       >
         <div>
           <p className="w-1/2 rounded-lg mx-auto h-4 mt-4 bg-gray-300/75"></p>

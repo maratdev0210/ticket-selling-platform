@@ -18,6 +18,36 @@ const ARTISTS = [
     genre: "Rap",
     description: "One of the most prominent artists from Houston",
   },
+  {
+    avatar: "https://i.scdn.co/image/ab6761610000e5eb19c2790744c792d05570bb71",
+    name: "Travis Scott",
+    genre: "Rap",
+    description: "One of the most prominent artists from Houston",
+  },
+  {
+    avatar: "https://i.scdn.co/image/ab6761610000e5eb19c2790744c792d05570bb71",
+    name: "Travis Scott",
+    genre: "Rap",
+    description: "One of the most prominent artists from Houston",
+  },
+  {
+    avatar: "https://i.scdn.co/image/ab6761610000e5eb19c2790744c792d05570bb71",
+    name: "Travis Scott",
+    genre: "Rap",
+    description: "One of the most prominent artists from Houston",
+  },
+  {
+    avatar: "https://i.scdn.co/image/ab6761610000e5eb19c2790744c792d05570bb71",
+    name: "Travis Scott",
+    genre: "Rap",
+    description: "One of the most prominent artists from Houston",
+  },
+  {
+    avatar: "https://i.scdn.co/image/ab6761610000e5eb19c2790744c792d05570bb71",
+    name: "Travis Scott",
+    genre: "Rap",
+    description: "One of the most prominent artists from Houston",
+  },
   /*
   {
     avatar:

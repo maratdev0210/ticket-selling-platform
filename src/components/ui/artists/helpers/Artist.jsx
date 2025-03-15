@@ -24,7 +24,7 @@ export default function Artist({ avatar, name, genre, description }) {
     });
   };
   return (
-    <div className={`px-4`}>
+    <div className={`px-4 last:mb-8`}>
       <img
         src={avatar}
         alt={name}

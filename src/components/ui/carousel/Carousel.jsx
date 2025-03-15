@@ -26,7 +26,7 @@ export default function Carousel() {
 
   return (
     <div>
-      <div className="mt-10 h-80 sm:w-xl mx-auto sm:mx-0 overflow-hidden">
+      <div className="h-120 sm:w-3xl  mx-auto sm:mx-0 overflow-hidden relative right-20">
         <div>
           <Image
             className={`${isAnimating ? "animate-fadeOutImage" : ""}`}
@@ -35,7 +35,8 @@ export default function Carousel() {
             currentImageId={imageId}
           />
         </div>
-        <div className="relative bottom-80">
+
+        <div className="relative bottom-120">
           <Image
             className={`${!isAnimating ? "animate-fadeInImage" : ""}`}
             src={concertImages[imageId == 2 ? 0 : imageId + 1]}
@@ -47,3 +48,5 @@ export default function Carousel() {
     </div>
   );
 }
+
+// TO-DO: Combine Carousel component with the Artists component into one section on a page

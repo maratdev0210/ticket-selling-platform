@@ -48,10 +48,43 @@ body.dark {
   --animate-strip: strip 1.5s infinite;
   --animate-fadeOutImage: fadeOutImage 3s ease-in-out infinite;
   --animate-fadeInImage: fadeInImage 3s ease-in-out infinite;
+  --animate-skeletonRun: skeletonRun 1s infinite;
+  --animate-skeletonRunAlternate: skeletonRunAlternate 1s 0.3s infinite;
 
   @keyframes skeleton {
     50% {
       opacity: 0.5;
+    }
+  }
+
+  @keyframes skeletonRunAlternate {
+    0% {
+      transform: translateX(0px);
+      opacity: 0;
+    }
+    50% {
+      opacity: 0.4;
+    }
+    100% {
+      transform: translateX(300%);
+      opacity: 0;
+    }
+  }
+
+  @keyframes skeletonRun {
+    0% {
+      transform: translateX(0px);
+      opacity: 0;
+    }
+    20% {
+      opacity: 0.2;
+    }
+    50% {
+      opacity: 0.4;
+    }
+    100% {
+      transform: translateX(300%);
+      opacity: 0;
     }
   }
 
@@ -82,7 +115,7 @@ body.dark {
   @keyframes fadeInImage {
     0% {
       opacity: 0;
-      transform: translateX(100%);
+      transform: translateX(80%);
     }
     100% {
       opacity: 1;
