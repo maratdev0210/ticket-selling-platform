@@ -3,7 +3,6 @@ import Payment from "./Payment";
 import Final from "./Final";
 import { useState, useEffect } from "react";
 import { Check } from "lucide-react";
-import ThemeSwitch from "../Header/themeSwitch";
 import { useStore } from "zustand";
 import useTheme from "../../state/useTheme";
 import Skeleton from "./helpers/Skeleton";
@@ -37,7 +36,6 @@ export default function Checkout() {
   return (
     <>
       <div className={`h-auto `}>
-        <ThemeSwitch />
         {loading ? (
           <Skeleton />
         ) : (
