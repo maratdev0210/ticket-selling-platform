@@ -64,7 +64,7 @@ export default function Payment({ onNext }) {
           <input
             onClick={() => setIsSubmit(true)}
             type="submit"
-            value="Send Data"
+            value="Pay"
             className="border-none rounded-lg cursor-pointer hover:bg-blue-500/75 bg-blue-500 text-white font-medium text-center w-3/4 h-10 mt-8"
           />
         </form>

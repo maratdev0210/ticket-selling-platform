@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useSpring, animated } from "@react-spring/web";
 import { useArtist } from "../../../state/useArtist";
+import { useConcert } from "../../../state/useConcert";
 import { useStore } from "zustand";
 
 // picture; The Weeknd; Pop Music, Worldwide recognized Candadian artist
@@ -8,6 +9,12 @@ export default function Artist({ avatar, name, genre, description }) {
   const [isCollapsed, setIsCollapsed] = useState(false); // is the description being shown or not
   const [springs, api] = useSpring(() => ({}));
   const changeArtist = useStore(useArtist, (state) => state.changeArtist);
+  const setConcert = useStore(useConcert, (state) => state.setConcert);
+
+  const onFindConcert = () => {
+    setConcert({ date: "", city: "", venue: "" });
+    changeArtist({ name, avatar });
+  };
 
   const handleCollapse = () => {
     setIsCollapsed(!isCollapsed);
@@ -50,12 +57,14 @@ export default function Artist({ avatar, name, genre, description }) {
               <div>
                 <p className="text-gray-300">
                   {description}
-                  <span
-                    onClick={() => changeArtist(name)}
-                    className="mx-2 text-blue-400 font-medium cursor-pointer hover:text-blue-400/75"
-                  >
-                    Buy tickets
-                  </span>
+                  <a href="#tickets">
+                    <span
+                      onClick={onFindConcert}
+                      className="mx-2 text-blue-400 font-medium cursor-pointer hover:text-blue-400/75"
+                    >
+                      Find concerts
+                    </span>
+                  </a>
                 </p>
               </div>
             )}

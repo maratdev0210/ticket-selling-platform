@@ -1,11 +1,20 @@
 @import "tailwindcss";
-
 @custom-variant dark (&:where(.dark, .dark *));
+
+/* hides the scrollbar */
+.container {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.container::-webkit-scrollbar {
+  display: none;
+}
 
 /* override the default values for easier styling */
 #root {
   margin: 0px !important;
   padding: 0px !important;
+  scroll-behavior: smooth;
 }
 
 body.dark {

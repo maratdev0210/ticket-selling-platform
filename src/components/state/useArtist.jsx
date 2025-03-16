@@ -2,7 +2,7 @@
 import { createStore } from "zustand";
 
 const useArtist = createStore((set) => ({
-  artist: "", // no artist is being selected by default
+  artist: { name: "", avatar: "" }, // no artist is being selected by default
   changeArtist: (artist) => {
     set(() => ({ artist: artist }));
   },

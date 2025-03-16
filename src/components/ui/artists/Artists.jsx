@@ -45,7 +45,7 @@ export default function Artists() {
           {isLoading ? (
             <Skeleton />
           ) : (
-            <div className="border-2 border-gray-200 mt-4 rounded-xl h-105 overflow-auto w-80">
+            <div className="border-2 border-gray-200 mt-4 rounded-xl h-105 container overflow-auto w-80">
               {artists.map(({ avatar, name, genre, description }, index) => {
                 return (
                   <Artist
