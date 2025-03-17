@@ -26,7 +26,7 @@ function ListItem() {
 export default function Skeleton() {
   return (
     <div>
-      <div className="border-2 border-gray-200 mt-4 rounded-xl h-105 w-80">
+      <div className="border-2  border-gray-200 mt-4 rounded-xl h-105 w-60 sm:w-80">
         <ListItem />
       </div>
     </div>

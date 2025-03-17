@@ -37,9 +37,11 @@ export default function PickSeats() {
           </p>
         </div>
         <div
-          className={`${artist.name.length == 0 ? "hidden" : "flex h-[800px] items-center relative"}`}
+          className={`${artist.name.length == 0 ? "hidden" : "flex h-[800px]  items-center relative"}`}
         >
-          <div className={`${concert.city.length > 0 ? "hidden" : "block"}`}>
+          <div
+            className={`${concert.city.length > 0 ? "hidden" : "block w-full sm:w-3/4 sm:mx-auto lg:w-1/2 lg:mx-1"}`}
+          >
             <Concerts />
           </div>
 

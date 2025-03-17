@@ -11,7 +11,7 @@ export default function Artists() {
   const [artists, setArtists] = useState(ARTISTS);
   const [isLoading, setIsLoading] = useState(true);
 
-  // animate the search 
+  // animate the search
   useEffect(() => {
     setIsLoading(true);
     const simulateLoad = async () => {
