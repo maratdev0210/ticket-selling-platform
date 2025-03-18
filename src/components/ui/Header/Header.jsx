@@ -21,12 +21,14 @@ export default function Header() {
                 </li>
               </Link>
 
-              <li className="tracking-tighter flex flex-col group">
-                Your order{" "}
-                <span
-                  className={`${underlineStyle} group-hover:scale-x-625`}
-                ></span>
-              </li>
+              <Link to="/order">
+                <li className="tracking-tighter flex flex-col group">
+                  Your order{" "}
+                  <span
+                    className={`${underlineStyle} group-hover:scale-x-625`}
+                  ></span>
+                </li>
+              </Link>
             </ul>
           </nav>
           <ThemeSwitch />

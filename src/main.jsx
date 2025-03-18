@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router";
 import "./index.css";
 import App from "./App.jsx";
 import Checkout from "./components/ui/Checkout/Checkout.jsx";
+import Order from "./components/ui/Order/Order.jsx";
 import Header from "./components/ui/Header/Header.jsx";
 import Footer from "./components/ui/Footer/Footer.jsx";
 
@@ -14,6 +15,7 @@ createRoot(document.getElementById("root")).render(
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/checkout" element={<Checkout />} />
+        <Route path="/order" element={<Order />} />
       </Routes>
       <Footer />
     </BrowserRouter>
