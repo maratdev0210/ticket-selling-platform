@@ -10,8 +10,8 @@ export default function Footer() {
   return (
     <>
       {showCode && <ShowProfile setShowCode={setShowCode} profile={Profile} />}
-      <footer className="bg-gray-100 h-auto relative bottom-0 px-12 pt-18 pb-4 mt-40 *:cursor-pointer">
-        <div className="grid grid-cols-2 w-full sm:grid-cols-3 gap-4 md:w-3/4 lg:w-1/2 2xl:w-130">
+      <footer className="bg-gray-100 dark:bg-black h-auto relative bottom-0 px-12 pt-18 pb-4 mt-40 *:cursor-pointer">
+        <div className="grid grid-cols-2 w-full sm:grid-cols-3 gap-4 md:w-3/4 lg:w-1/2 2xl:w-130 ">
           <About />
           <Developers />
           <Socials setShowCode={setShowCode} />

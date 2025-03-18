@@ -41,7 +41,7 @@ export default function Concerts() {
   return (
     <div className="px-2 lg:px-8">
       <div className="border-1 w-full lg:w-160 h-150 overflow-auto container border-gray-300 rounded-lg">
-        <div className="sm:sticky top-0 z-99 bg-white py-2 px-2 sm:px-0">
+        <div className="sm:sticky top-0 z-99 dark:bg-gray-900 bg-white py-2 px-2 sm:px-0">
           <div className="flex flex-col sm:flex-row gap-2 justify-center mb-4 sm:mb-12">
             <DateFilter dates={concertDates} setDate={setDate} />
             <LocationFilter onSearch={setLocation} />

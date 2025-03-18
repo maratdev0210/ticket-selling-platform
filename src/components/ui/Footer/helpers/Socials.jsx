@@ -11,14 +11,18 @@ const SOCIALS = {
 export default function Socials({ setShowCode }) {
   return (
     <div className="flex flex-col">
-      <span className="font-bold text-lg text-gray-500">Socials</span>
+      <span className="font-bold text-lg text-gray-500 dark:text-white">
+        Socials
+      </span>
       <div className="mt-2 flex flex-col gap-2">
         {Object.entries(SOCIALS).map((social, index) => {
           return (
             <div key={index} className="flex items-center gap-1">
               <img src={social[1].icon} className="size-5" />
               <Link to={social[1].link}>
-                <span className="text-gray-500 font-medium">{social[0]}</span>
+                <span className="text-gray-500 dark:text-gray-100 font-medium">
+                  {social[0]}
+                </span>
               </Link>
             </div>
           );
@@ -28,7 +32,9 @@ export default function Socials({ setShowCode }) {
           className="flex items-center gap-1"
         >
           <img src={QrIcon} className="size-5" />
-          <span className="text-gray-500 font-medium">Scan QR</span>
+          <span className="text-gray-500 dark:text-gray-100 font-medium">
+            Scan QR
+          </span>
         </div>
       </div>
     </div>

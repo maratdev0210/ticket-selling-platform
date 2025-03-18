@@ -59,6 +59,54 @@ body.dark {
   --animate-fadeInImage: fadeInImage 3s ease-in-out infinite;
   --animate-skeletonRun: skeletonRun 1s infinite;
   --animate-skeletonRunAlternate: skeletonRunAlternate 1s 0.3s infinite;
+  --animate-letterAppear: letterAppear 0.3s ease-in forwards;
+  --animate-letterAppear2: letterAppear2 0.2s ease-in-out 0.2s forwards;
+  --animate-letterAppear3: letterAppear3 0.2s ease-in 0.3s forwards;
+  --animate-letterAppear4: letterAppear4 0.2s ease-in-out 0.4s forwards;
+
+  @keyframes letterAppear {
+    0% {
+      bottom: 32px;
+      opacity: 0.5;
+    }
+    100% {
+      bottom: 0px;
+      opacity: 1;
+    }
+  }
+
+  @keyframes letterAppear2 {
+    0% {
+      bottom: 32px;
+      opacity: 0.5;
+    }
+    100% {
+      bottom: 0px;
+      opacity: 1;
+    }
+  }
+
+  @keyframes letterAppear3 {
+    0% {
+      bottom: 32px;
+      opacity: 0.5;
+    }
+    100% {
+      bottom: 0px;
+      opacity: 1;
+    }
+  }
+
+  @keyframes letterAppear4 {
+    0% {
+      bottom: 32px;
+      opacity: 0.5;
+    }
+    100% {
+      bottom: 0px;
+      opacity: 1;
+    }
+  }
 
   @keyframes skeleton {
     50% {

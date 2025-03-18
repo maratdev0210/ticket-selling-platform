@@ -11,7 +11,10 @@ export default function BasicVenue({ isLimitReached, setIsLimitReached }) {
 
   return (
     <div className="relative flex items-center md:scale-75 lg:scale-100 lg:w-3/4">
-      <div style={{ width: width }} className="h-[700px]">
+      <div
+        style={{ width: width }}
+        className="h-[300px] sm:h-[500px] lg:h-[700px]"
+      >
         <div>
           <Stage
             className="absolute"

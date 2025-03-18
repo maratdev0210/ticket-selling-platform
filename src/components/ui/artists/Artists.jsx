@@ -34,18 +34,18 @@ export default function Artists() {
   return (
     <div className="h-auto mb-2">
       <div>
-        <h2 className="font-medium text-2xl text-center py-8 text-gray-800">
+        <h2 className="font-medium text-2xl text-center py-8 text-gray-800 dark:text-pink-500">
           Check out artists who are currently on tour!
         </h2>
       </div>
-      <div className="flex justify-center">
+      <div className="dark:mx-auto dark:w-1/2 dark:flex-row dark:justify-center  flex flex-col xl:justify-between xl:flex-row">
         <Carousel />
         <div>
           <Search onSearch={setSearch} />
           {isLoading ? (
             <Skeleton />
           ) : (
-            <div className="border-2 border-gray-200 mt-4 rounded-xl h-105 container overflow-auto w-80">
+            <div className="border-2 dark:border-gray-800 border-gray-200 xl:mr-10 mt-4 rounded-xl h-105 container overflow-auto w-80">
               {artists.map(({ avatar, name, genre, description }, index) => {
                 return (
                   <Artist

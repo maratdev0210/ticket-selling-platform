@@ -5,7 +5,7 @@ export default function Search({ onSearch }) {
         type="text"
         onInput={(e) => onSearch(e.target.value.trim().toLowerCase())}
         placeholder="Search.."
-        className="rounded-xl focus:outline-blue-400  border-blue-300 font-medium text-gray-600 text-lg border-1 p-2"
+        className="rounded-xl  dark:focus:outline-pink-400 focus:outline-blue-400  border-blue-300 font-medium text-gray-600 text-lg border-1 p-2"
       />
     </div>
   );

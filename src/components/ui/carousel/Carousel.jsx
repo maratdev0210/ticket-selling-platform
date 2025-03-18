@@ -25,8 +25,8 @@ export default function Carousel() {
   });
 
   return (
-    <div>
-      <div className="h-120 sm:w-3xl  mx-auto sm:mx-0 overflow-hidden relative right-20">
+    <div className="dark:hidden">
+      <div className="sm:h-150 md:h-180 lg:h-170 xl:h-120 h-90 mx-auto sm:mx-0 overflow-hidden relative xl:w-3xl">
         <div>
           <Image
             className={`${isAnimating ? "animate-fadeOutImage" : ""}`}
@@ -36,7 +36,7 @@ export default function Carousel() {
           />
         </div>
 
-        <div className="relative bottom-120">
+        <div className="relative bottom-70 sm:bottom-120 md:bottom-140 lg:bottom-150 xl:bottom-120">
           <Image
             className={`${!isAnimating ? "animate-fadeInImage" : ""}`}
             src={concertImages[imageId == 2 ? 0 : imageId + 1]}

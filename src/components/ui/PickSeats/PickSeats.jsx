@@ -30,9 +30,11 @@ export default function PickSeats() {
     <div id="tickets" className={`relative top-20`}>
       <div>
         <div>
-          <p className="text-gray-700 text-center font-medium text-2xl">
+          <p className="text-gray-700 dark:text-pink-500 text-center font-medium text-2xl">
             Buy tickets for{" "}
-            <span className="text-gray-900 font-bold">{artist.name}</span>{" "}
+            <span className="text-gray-900 dark:text-white font-bold">
+              {artist.name}
+            </span>{" "}
             concert
           </p>
         </div>
@@ -46,7 +48,7 @@ export default function PickSeats() {
           </div>
 
           <div
-            className={`${concert.city.length == 0 ? "hidden" : "flex shadow-2xl w-full 2xl:w-3/4  h-[600px]  mx-auto"}`}
+            className={`${concert.city.length == 0 ? "hidden" : "flex flex-col sm:flex-row overflow-auto container shadow-2xl w-full 2xl:w-3/4  h-[600px]  mx-auto"}`}
           >
             <BasicVenue
               isLimitReached={isLimitReached}
